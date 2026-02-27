@@ -1,0 +1,298 @@
+/* ======================================================
+   Global Reset & Base
+   ====================================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f0f4f8;
+  color: #1a202c;
+  line-height: 1.6;
+}
+
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+#root { min-height: 100vh; }
+
+/* ======================================================
+   Navbar
+   ====================================================== */
+.navbar {
+  background: #1e3a5f;
+  padding: 0.75rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.nav-brand {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nav-links a {
+  color: #cbd5e0;
+  margin-left: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.nav-links a:hover { color: #fff; }
+
+/* ======================================================
+   Layout
+   ====================================================== */
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.page { width: 100%; }
+
+.page-header {
+  margin-bottom: 1.5rem;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e3a5f;
+}
+
+.tagline {
+  color: #4a5568;
+  margin-top: 0.25rem;
+}
+
+/* ======================================================
+   View Toggle
+   ====================================================== */
+.view-toggle {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.toggle-btn {
+  padding: 0.5rem 1.25rem;
+  border: 2px solid #2563eb;
+  background: #fff;
+  color: #2563eb;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.15s;
+}
+
+.toggle-btn.active,
+.toggle-btn:hover {
+  background: #2563eb;
+  color: #fff;
+}
+
+/* ======================================================
+   Filters
+   ====================================================== */
+.filters {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.search-input,
+.semester-select {
+  padding: 0.55rem 1rem;
+  border: 1.5px solid #cbd5e0;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background: #fff;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.search-input { flex: 1; min-width: 220px; }
+.semester-select { min-width: 160px; }
+
+.search-input:focus,
+.semester-select:focus { border-color: #2563eb; }
+
+/* ======================================================
+   Export Buttons
+   ====================================================== */
+.export-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  background: #ebf4ff;
+  border: 1.5px solid #bfdbfe;
+  border-radius: 8px;
+}
+
+.export-label {
+  font-weight: 600;
+  color: #1e3a5f;
+  margin-right: 0.25rem;
+}
+
+.export-error {
+  color: #dc2626;
+  font-size: 0.85rem;
+  width: 100%;
+}
+
+/* ======================================================
+   Buttons
+   ====================================================== */
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: opacity 0.15s, transform 0.1s;
+}
+
+.btn:hover { opacity: 0.9; transform: translateY(-1px); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+.btn-primary  { background: #2563eb; color: #fff; }
+.btn-secondary{ background: #e2e8f0; color: #4a5568; }
+.btn-google   { background: #4285F4; color: #fff; }
+.btn-ics      { background: #0f766e; color: #fff; }
+.btn-apple    { background: #1c1c1e; color: #fff; }
+.btn-edit     { background: #f59e0b; color: #fff; margin-right: 0.5rem; }
+.btn-delete   { background: #ef4444; color: #fff; }
+
+.btn-sm { padding: 0.3rem 0.7rem; font-size: 0.8rem; }
+
+/* ======================================================
+   Table
+   ====================================================== */
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.exams-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+.exams-table thead { background: #1e3a5f; color: #fff; }
+.exams-table th { padding: 0.75rem 1rem; text-align: left; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.exams-table td { padding: 0.65rem 1rem; font-size: 0.9rem; border-bottom: 1px solid #e2e8f0; vertical-align: middle; }
+.exams-table tbody tr:hover { background: #f7fafc; }
+.exam-card.selected td { background: #ebf4ff !important; }
+.course-code { font-weight: 700; color: #1e3a5f; }
+
+/* ======================================================
+   Status Messages
+   ====================================================== */
+.status-msg { padding: 0.75rem; color: #4a5568; }
+.status-msg.error { color: #dc2626; }
+.status-badge { padding: 0.4rem 0.8rem; background: #d1fae5; color: #065f46; border-radius: 4px; font-size: 0.85rem; }
+
+/* ======================================================
+   Calendar View
+   ====================================================== */
+.calendar-hint { font-size: 0.9rem; color: #4a5568; margin-bottom: 0.75rem; }
+.calendar-container { background: #fff; padding: 1rem; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+
+/* ======================================================
+   Modal / ExamForm
+   ====================================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 10px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 560px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.modal-content h2 {
+  font-size: 1.4rem;
+  color: #1e3a5f;
+  margin-bottom: 1.25rem;
+}
+
+.form-row { display: flex; gap: 1rem; }
+.form-row .form-group { flex: 1; }
+
+.form-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.form-group label { font-size: 0.85rem; font-weight: 600; color: #4a5568; }
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.5rem 0.75rem;
+  border: 1.5px solid #cbd5e0;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  background: #fff;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: #2563eb; }
+
+.field-error { font-size: 0.8rem; color: #dc2626; }
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+/* ======================================================
+   Admin Toolbar
+   ====================================================== */
+.admin-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+/* ======================================================
+   Responsive
+   ====================================================== */
+@media (max-width: 640px) {
+  .form-row { flex-direction: column; }
+  .filters { flex-direction: column; }
+  .export-buttons { flex-direction: column; align-items: flex-start; }
+  .page-header h1 { font-size: 1.5rem; }
+}
